@@ -10,7 +10,9 @@ import { Logo } from '../../components/Logo';
 import { useToast } from '../../components/Toasts';
 
 const TAGLINE = 'From Ideas to Impact.';
-export const WEBSITE_URL = 'https://bhavyaanil07.github.io/osmic/';
+// Online: the GitHub Pages website. On your own computer: the website served on port 8000.
+const IS_LOCAL = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+export const WEBSITE_URL = IS_LOCAL ? 'http://localhost:8000/' : 'https://bhavyaanil07.github.io/osmic/';
 
 function Typed({ text }) {
   const [n, setN] = useState(0);
