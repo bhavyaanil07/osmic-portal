@@ -32,7 +32,7 @@ export default function Teams() {
               <ul className="mt-3 flex flex-col gap-2">
                 <AnimatePresence>
                   {free.map((u) => (
-                    <motion.li key={u.id} layout exit={{ opacity: 0, x: 40 }} className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-200 bg-white px-4 py-3">
+                    <motion.li key={u.id} layout exit={{ opacity: 0, x: 40 }} className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-200 bg-panel px-4 py-3">
                       <Avatar name={u.name} photo={u.photo} size={36} />
                       <span className="flex min-w-[160px] flex-1 flex-col"><span className="font-semibold">{u.name}</span><span className="font-mono text-xs text-slate-500">{u.roll}</span></span>
                       <select aria-label={`Club lead for ${u.name}`} className="input min-h-[40px] w-48 py-2" value="" onChange={(e) => assign(u, e.target.value)}>

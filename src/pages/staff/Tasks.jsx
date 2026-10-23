@@ -50,7 +50,7 @@ function CreateTask({ scope, isLead }) {
     <Card className="overflow-hidden">
       <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} className="flex w-full items-center justify-between gap-3 p-5 text-left">
         <span className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white"><Plus className="h-5 w-5" aria-hidden="true" /></span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-ink-950"><Plus className="h-5 w-5" aria-hidden="true" /></span>
           <span><span className="block font-display text-[17px] font-semibold">Assign a new task</span>
             <span className="block text-[13px] text-slate-500">{isLead ? 'To your whole team or selected team members' : 'To everyone, the club leads, or selected members'}</span></span>
         </span>
@@ -86,7 +86,7 @@ function CreateTask({ scope, isLead }) {
                           const on = pick.includes(u.id);
                           return (
                             <motion.label key={u.id} whileTap={{ scale: 0.96 }}
-                              className={cx('inline-flex min-h-[40px] cursor-pointer items-center gap-2 rounded-full border py-1 pl-1 pr-3 text-[13px] font-medium transition-colors', on ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-slate-300 bg-white text-slate-700 hover:border-slate-400')}>
+                              className={cx('inline-flex min-h-[40px] cursor-pointer items-center gap-2 rounded-full border py-1 pl-1 pr-3 text-[13px] font-medium transition-colors', on ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-slate-300 bg-panel text-slate-700 hover:border-slate-400')}>
                               <input type="checkbox" className="sr-only" checked={on} onChange={() => setPick((p) => (on ? p.filter((x) => x !== u.id) : [...p, u.id]))} />
                               <Avatar name={u.name} photo={u.photo} size={28} />
                               {u.name}
@@ -211,7 +211,7 @@ export default function TasksPage() {
                           <div className="flex flex-wrap gap-2">
                             {statuses.map(({ u, s }, i) => (
                               <motion.span key={u.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0, transition: { delay: i * 0.03 } }}
-                                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1 pl-1 pr-1.5 text-[13px]">
+                                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-panel py-1 pl-1 pr-1.5 text-[13px]">
                                 <Avatar name={u.name} photo={u.photo} size={22} /> {u.name} <Badge tone={s}>{s === 'submitted' ? 'To review' : undefined}</Badge>
                               </motion.span>
                             ))}

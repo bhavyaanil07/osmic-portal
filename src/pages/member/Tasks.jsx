@@ -35,10 +35,10 @@ function SubmitBox({ task, onDone }) {
 
   return (
     <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-slate-50/70 p-4">
-      <div className="inline-flex self-start rounded-lg bg-white p-1 ring-1 ring-slate-200">
+      <div className="inline-flex self-start rounded-lg bg-panel p-1 ring-1 ring-slate-200">
         {[['file', 'Upload file', Upload], ['link', 'Paste link', LinkIcon]].map(([v, label, Icon]) => (
           <button key={v} type="button" onClick={() => setMode(v)} aria-pressed={mode === v}
-            className={cx('relative inline-flex min-h-[34px] items-center gap-1.5 rounded-md px-3 text-[13px] font-semibold', mode === v ? 'text-white' : 'text-slate-600')}>
+            className={cx('relative inline-flex min-h-[34px] items-center gap-1.5 rounded-md px-3 text-[13px] font-semibold', mode === v ? 'text-ink-950' : 'text-slate-600')}>
             {mode === v && <motion.span layoutId={`mode-${task.id}`} className="absolute inset-0 rounded-md bg-brand-600" transition={{ type: 'spring', stiffness: 450, damping: 34 }} />}
             <Icon className="relative h-3.5 w-3.5" aria-hidden="true" /><span className="relative">{label}</span>
           </button>
@@ -50,7 +50,7 @@ function SubmitBox({ task, onDone }) {
             onClick={() => ref.current?.click()}
             onDragOver={(e) => { e.preventDefault(); setDrag(true); }} onDragLeave={() => setDrag(false)}
             onDrop={(e) => { e.preventDefault(); setDrag(false); pick(e.dataTransfer.files?.[0]); }}
-            className={cx('flex min-h-[88px] flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed px-4 py-4 text-center transition-colors', drag ? 'border-brand-500 bg-brand-50' : 'border-slate-300 bg-white hover:border-brand-400')}>
+            className={cx('flex min-h-[88px] flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed px-4 py-4 text-center transition-colors', drag ? 'border-brand-500 bg-brand-50' : 'border-slate-300 bg-panel hover:border-brand-400')}>
             {file ? (
               <span className="inline-flex items-center gap-2 font-mono text-sm text-slate-800"><Paperclip className="h-4 w-4" aria-hidden="true" />{file.name}</span>
             ) : (
@@ -86,7 +86,7 @@ function TaskCard({ task, index }) {
 
   return (
     <motion.li layout initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0, transition: { delay: index * 0.05, duration: 0.4, ease } }} exit={{ opacity: 0, scale: 0.97 }}
-      className={cx('flex flex-col gap-4 rounded-2xl border bg-white p-5 shadow-card', urgent ? 'border-amber-300' : 'border-slate-200')}>
+      className={cx('flex flex-col gap-4 rounded-2xl border bg-panel p-5 shadow-card', urgent ? 'border-amber-300' : 'border-slate-200')}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h2 className="font-display text-lg font-semibold">{task.title}</h2>

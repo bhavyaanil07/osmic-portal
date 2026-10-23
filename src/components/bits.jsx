@@ -9,17 +9,17 @@ import { AnimatedNumber, Avatar, Badge, Card, Modal, ProgressBar, Ring, cx, ease
 export function StatCard({ label, value, note, icon: Icon, onClick, accent = false }) {
   const Tag = onClick ? motion.button : motion.div;
   return (
-    <Card hover={!!onClick} className={cx('p-0', accent && 'border-brand-200')}>
+    <Card hover={!!onClick} className={cx('p-0', accent && 'border-rose-300')}>
       <Tag type={onClick ? 'button' : undefined} onClick={onClick} className="flex w-full flex-col gap-1 p-5 text-left">
         <div className="flex items-center justify-between gap-2">
           <span className="text-[13px] font-semibold text-slate-500">{label}</span>
           {Icon && (
-            <span className={cx('flex h-8 w-8 items-center justify-center rounded-lg', accent ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600')}>
+            <span className={cx('flex h-8 w-8 items-center justify-center rounded-lg', accent ? 'bg-signal text-white shadow-glow-pink' : 'bg-slate-100 text-brand-600')}>
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
           )}
         </div>
-        <AnimatedNumber value={value} className="font-display text-[34px] font-bold leading-none tracking-tight text-slate-900" />
+        <AnimatedNumber value={value} className="gradient-text font-display text-[36px] font-bold leading-none" />
         {note && <span className="truncate text-xs text-slate-500">{note}</span>}
       </Tag>
     </Card>
@@ -33,7 +33,7 @@ export function Tabs({ tabs, value, onChange, id }) {
         <button key={t.value} type="button" role="tab" aria-selected={value === t.value} onClick={() => onChange(t.value)}
           className={cx('relative min-h-[36px] rounded-lg px-3.5 text-[13px] font-semibold transition-colors', value === t.value ? 'text-slate-900' : 'text-slate-500 hover:text-slate-800')}>
           {value === t.value && (
-            <motion.span layoutId={`tab-${id}`} className="absolute inset-0 rounded-lg bg-white shadow-sm" transition={{ type: 'spring', stiffness: 450, damping: 34 }} />
+            <motion.span layoutId={`tab-${id}`} className="absolute inset-0 rounded-lg bg-panel shadow-sm" transition={{ type: 'spring', stiffness: 450, damping: 34 }} />
           )}
           <span className="relative">{t.label}{t.count != null && <span className="ml-1.5 text-slate-400">{t.count}</span>}</span>
         </button>
@@ -48,7 +48,7 @@ export function CodeTiles({ code, size = 'lg', dark = true }) {
   return (
     <div className="flex gap-1.5 sm:gap-2" aria-label={`Session code ${code.split('').join(' ')}`}>
       {code.split('').map((ch, i) => (
-        <div key={i} className={cx('relative overflow-hidden rounded-xl', big ? 'h-16 w-12 sm:h-[72px] sm:w-14' : 'h-12 w-10', dark ? 'bg-white/10 text-white ring-1 ring-inset ring-white/20 backdrop-blur' : 'bg-white text-slate-900 ring-1 ring-slate-200')}>
+        <div key={i} className={cx('cut relative overflow-hidden', big ? 'h-16 w-12 sm:h-[72px] sm:w-14' : 'h-12 w-10', dark ? 'bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-300 neon-text' : 'bg-panel text-slate-900 ring-1 ring-slate-200')}>
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span key={code + i}
               initial={{ rotateX: -90, opacity: 0, y: -10 }} animate={{ rotateX: 0, opacity: 1, y: 0 }} exit={{ rotateX: 90, opacity: 0, y: 10 }}
@@ -77,7 +77,7 @@ export function Countdown({ until, total = 15 * 60000, size = 56 }) {
     <div className="flex items-center gap-3">
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(148,163,184,0.25)" strokeWidth="5" />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#F59E0B' : '#22D3EE'} strokeWidth="5" strokeLinecap="round"
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#FCEE0A' : '#22E8FF'} strokeWidth="5" strokeLinecap="round"
           strokeDasharray={c} strokeDashoffset={c * (1 - frac)} style={{ transition: 'stroke-dashoffset 1s linear' }} />
       </svg>
       <div className="flex flex-col">

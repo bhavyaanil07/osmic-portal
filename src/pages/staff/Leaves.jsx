@@ -39,7 +39,7 @@ export default function LeavesPage() {
             return (
               <motion.li key={l.id} layout
                 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0, transition: { delay: i * 0.05, duration: 0.4, ease } }} exit={{ opacity: 0, scale: 0.95 }}
-                className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+                className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-panel p-5 shadow-card">
                 <div className="flex items-center gap-3">
                   <Avatar name={u.name} photo={u.photo} size={40} />
                   <div className="flex-1">

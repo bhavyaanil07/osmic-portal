@@ -71,7 +71,7 @@ export default function MemberProgress() {
             <span className="absolute bottom-2 left-[25px] top-2 w-px bg-slate-200" aria-hidden="true" />
             {events.map((e, i) => (
               <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.15 + Math.min(i, 10) * 0.05 } }} className="relative flex items-center gap-3">
-                <span className={cx('relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ring-4 ring-white', e.tone)}><e.icon className="h-4 w-4" aria-hidden="true" /></span>
+                <span className={cx('relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ring-4 ring-panel', e.tone)}><e.icon className="h-4 w-4" aria-hidden="true" /></span>
                 <span className="flex-1 text-sm">{e.text}</span>
                 <span className="text-xs text-slate-500">{fmtDate(e.at)}</span>
               </motion.li>

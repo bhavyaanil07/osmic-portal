@@ -42,7 +42,7 @@ export default function AdminDashboard() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-          <Card className="relative overflow-hidden bg-ink-900 p-6 text-white">
+          <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(34,232,255,0.35)]">
             <div className="tech-grid absolute inset-0 opacity-60" aria-hidden="true" />
             <div className="relative flex flex-col gap-5">
               <div className="flex flex-wrap items-center justify-between gap-2">
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
                 <p className="text-sm text-slate-400">No session is open. Start one when the meeting begins.</p>
               )}
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4">
-                <span className="text-sm text-slate-300">{checkins.length} entered the code · {checkins.filter((a) => a.status === 'verified').length} verified · {pendingCheckins} waiting</span>
+                <span className="text-sm text-slate-700">{checkins.length} entered the code · {checkins.filter((a) => a.status === 'verified').length} verified · {pendingCheckins} waiting</span>
                 <Button size="sm" onClick={() => navigate('/admin/attendance')}>{open ? 'Verify check-ins' : 'Start a session'}</Button>
               </div>
             </div>

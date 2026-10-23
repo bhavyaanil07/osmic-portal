@@ -59,23 +59,23 @@ function Sidebar({ onNavigate }) {
   const nav = useNav();
   const navigate = useNavigate();
   return (
-    <div className="flex h-full flex-col gap-6 bg-ink-900 px-3 py-5 text-slate-300">
+    <div className="flex h-full flex-col gap-6 border-r border-brand-200/60 bg-ink-950/90 px-3 py-5 text-slate-700 backdrop-blur-xl">
       <div className="px-2"><Logo sub={ROLE_LABEL[viewer.role]} /></div>
       <nav aria-label="Main" className="flex flex-col gap-0.5">
         {nav.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end} onClick={onNavigate}
-            className={({ isActive }) => cx('relative flex min-h-[42px] items-center gap-3 rounded-lg px-3 text-sm font-medium transition-colors', isActive ? 'text-white' : 'text-slate-400 hover:bg-white/5 hover:text-slate-100')}>
+            className={({ isActive }) => cx('relative flex min-h-[42px] items-center gap-3 rounded-lg px-3 text-sm font-medium transition-colors', isActive ? 'text-brand-700' : 'text-slate-500 hover:bg-white/5 hover:text-slate-900')}>
             {({ isActive }) => (
               <>
                 {isActive && (
-                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-white/10 ring-1 ring-inset ring-white/10" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
+                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-brand-50 ring-1 ring-inset ring-brand-300 shadow-[0_0_18px_-4px_rgba(34,232,255,0.5)]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
                 )}
-                {isActive && <motion.span layoutId="nav-bar" className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-signal" />}
+                {isActive && <motion.span layoutId="nav-bar" className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-signal shadow-glow-pink" />}
                 <item.icon className="relative h-[18px] w-[18px]" aria-hidden="true" />
                 <span className="relative flex-1">{item.label}</span>
                 <AnimatePresence>
                   {item.count > 0 && (
-                    <motion.span key={item.count} initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="relative rounded-full bg-brand-500 px-2 text-xs font-semibold leading-5 text-white">
+                    <motion.span key={item.count} initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="relative rounded-full bg-brand-500 px-2 text-xs font-bold leading-5 text-ink-950 shadow-glow">
                       {item.count}
                     </motion.span>
                   )}
@@ -122,7 +122,7 @@ function Notifications() {
     <div className="relative" ref={ref}>
       <motion.button type="button" whileTap={{ scale: 0.94 }} aria-label={`Notifications${unread ? `, ${unread} unread` : ''}`} aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300">
+        className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-panel text-slate-700 shadow-sm transition hover:border-slate-300">
         <motion.span animate={unread ? { rotate: [0, -14, 12, -8, 6, 0] } : {}} transition={{ duration: 0.8, repeat: unread ? Infinity : 0, repeatDelay: 4 }}>
           <Bell className="h-5 w-5" />
         </motion.span>
@@ -140,7 +140,7 @@ function Notifications() {
           <motion.div
             initial={{ opacity: 0, y: -8, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.2, ease }}
-            className="absolute right-0 top-14 z-40 w-[min(92vw,360px)] origin-top-right overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lift">
+            className="absolute right-0 top-14 z-40 w-[min(92vw,360px)] origin-top-right overflow-hidden rounded-2xl border border-slate-200 bg-panel shadow-lift">
             <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3">
               <p className="font-display font-semibold">Notifications</p>
               {unread > 0 && (
@@ -181,7 +181,7 @@ export function AppLayout({ role }) {
   if (viewer.role !== role) return <Navigate to={homePath(viewer.role)} replace />;
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="cyber-bg min-h-screen">
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-[256px] lg:block">
         <Sidebar />
@@ -204,12 +204,12 @@ export function AppLayout({ role }) {
       </AnimatePresence>
 
       <div className="lg:pl-[256px]">
-        <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-slate-200/70 bg-slate-50/80 px-4 py-3 backdrop-blur-md sm:px-8">
-          <button type="button" aria-label="Open menu" onClick={() => setDrawer(true)} className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 lg:hidden">
+        <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-slate-200/70 bg-ink-950/70 px-4 py-3 backdrop-blur-md sm:px-8">
+          <button type="button" aria-label="Open menu" onClick={() => setDrawer(true)} className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-panel text-slate-700 lg:hidden">
             <Menu className="h-5 w-5" />
           </button>
           <div className="hidden font-mono text-xs font-medium tracking-wide text-slate-500 lg:block">
-            osmic / <span className="text-slate-800">{location.pathname.split('/').filter(Boolean).slice(1).join(' / ') || 'dashboard'}</span>
+            <span className="text-signal">&gt;</span> osmic / <span className="text-brand-600">{location.pathname.split('/').filter(Boolean).slice(1).join(' / ') || 'dashboard'}</span>
           </div>
           <Notifications />
         </header>
@@ -232,7 +232,7 @@ export function PageHeader({ title, sub, actions }) {
     <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div>
         <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease }}
-          className="font-display text-[28px] font-bold leading-tight tracking-tight text-slate-900">
+          className="neon-soft font-display text-[30px] font-bold uppercase leading-tight tracking-wide text-slate-900">
           {title}
         </motion.h1>
         {sub && (

@@ -46,11 +46,11 @@ export function useNow(ms = 1000) {
 
 // ---------- buttons ----------
 const BTN = {
-  primary: 'bg-brand-600 text-white shadow-sm hover:bg-brand-700 hover:shadow-glow',
-  secondary: 'bg-white text-slate-800 border border-slate-300 hover:border-slate-400 hover:bg-slate-50',
+  primary: 'cut bg-brand-600 text-ink-950 font-bold hover:bg-brand-500 hover:shadow-glow',
+  secondary: 'bg-panel text-slate-800 border border-slate-300 hover:border-brand-400 hover:text-brand-700 hover:shadow-glow',
   ghost: 'bg-transparent text-slate-700 hover:bg-slate-100',
-  success: 'bg-emerald-600 text-white hover:bg-emerald-700',
-  danger: 'bg-white text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-300',
+  success: 'bg-emerald-600 text-ink-950 hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(57,255,154,0.45)]',
+  danger: 'bg-panel text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-400 hover:shadow-[0_0_18px_rgba(255,59,107,0.35)]',
   dark: 'bg-ink-900 text-white hover:bg-ink-800',
 };
 const SIZE = {
@@ -83,7 +83,7 @@ export function Card({ className, children, hover = false, ...rest }) {
       variants={itemVariants}
       whileHover={hover ? { y: -3 } : undefined}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className={cx('min-w-0 rounded-2xl border border-slate-200/80 shadow-card', !/(^|\s)bg-/.test(className || '') && 'bg-white', hover && 'transition-shadow hover:shadow-lift', className)}
+      className={cx('min-w-0 rounded-2xl border border-slate-200/80 shadow-card', !/(^|\s)bg-/.test(className || '') && 'bg-panel', hover && 'transition-[box-shadow,border-color] hover:border-brand-300 hover:shadow-lift', className)}
       {...rest}
     >
       {children}
@@ -95,7 +95,7 @@ export function SectionTitle({ title, sub, action }) {
   return (
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div>
-        <h2 className="font-display text-[17px] font-semibold tracking-tight text-slate-900">{title}</h2>
+        <h2 className="font-display text-[17px] font-semibold tracking-wide text-slate-900">{title}</h2>
         {sub && <p className="mt-0.5 text-[13px] text-slate-500">{sub}</p>}
       </div>
       {action}
@@ -118,7 +118,7 @@ const TONES = {
   not_submitted: 'bg-slate-100 text-slate-600 ring-slate-200',
   member: 'bg-slate-100 text-slate-700 ring-slate-200',
   lead: 'bg-violet-50 text-violet-700 ring-violet-200',
-  admin: 'bg-ink-900 text-white ring-ink-900',
+  admin: 'bg-rose-50 text-rose-700 ring-rose-300',
   late: 'bg-orange-50 text-orange-700 ring-orange-200',
   leave: 'bg-sky-50 text-sky-700 ring-sky-200',
   inactive: 'bg-slate-100 text-slate-500 ring-slate-200',
@@ -176,7 +176,7 @@ export function AnimatedNumber({ value, suffix = '', className, style }) {
 }
 
 export function ProgressBar({ value, tone = 'brand', className, height = 8 }) {
-  const color = { brand: 'bg-brand-600', green: 'bg-emerald-500', amber: 'bg-amber-500', red: 'bg-red-500' }[tone];
+  const color = { brand: 'bg-brand-600 shadow-[0_0_10px_rgba(34,232,255,0.7)]', green: 'bg-emerald-500 shadow-[0_0_10px_rgba(57,255,154,0.6)]', amber: 'bg-amber-500 shadow-[0_0_10px_rgba(252,238,10,0.6)]', red: 'bg-red-500 shadow-[0_0_10px_rgba(255,59,107,0.6)]' }[tone];
   return (
     <div className={cx('w-full overflow-hidden rounded-full bg-slate-100', className)} style={{ height }} role="presentation">
       <motion.div
@@ -194,14 +194,14 @@ export function Ring({ value, size = 120, stroke = 10, label }) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const pct = value == null ? 0 : value;
-  const color = pct >= 75 ? '#2457E6' : '#F59E0B';
+  const color = pct >= 75 ? '#22E8FF' : '#FCEE0A';
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#E2E8F0" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#1C1B33" strokeWidth={stroke} />
         <motion.circle
           cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round"
-          strokeDasharray={c}
+          strokeDasharray={c} style={{ filter: `drop-shadow(0 0 6px ${color})` }}
           initial={{ strokeDashoffset: c }}
           animate={{ strokeDashoffset: c - (pct / 100) * c }}
           transition={{ duration: 1.1, ease }}
@@ -258,7 +258,7 @@ export function Modal({ open, onClose, title, children, width = 480 }) {
           <div className="absolute inset-0 bg-ink-950/50 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
           <motion.div
             role="dialog" aria-modal="true" aria-label={title}
-            className="relative w-full rounded-2xl bg-white p-6 shadow-2xl"
+            className="relative w-full rounded-2xl border border-brand-300/70 bg-panel p-6 shadow-lift"
             style={{ maxWidth: width }}
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}

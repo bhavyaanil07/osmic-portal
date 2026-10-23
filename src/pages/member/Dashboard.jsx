@@ -24,7 +24,7 @@ export default function MemberDashboard() {
   return (
     <Stagger className="flex flex-col gap-5">
       <motion.section variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}
-        className="relative overflow-hidden rounded-3xl bg-ink-900 p-6 text-white sm:p-8">
+        className="scanlines relative overflow-hidden rounded-3xl border border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(34,232,255,0.35)] sm:p-8">
         <div className="tech-grid animate-gridmove absolute inset-0 opacity-70" aria-hidden="true" />
         <div className="animate-drift absolute -right-16 -top-24 h-72 w-72 rounded-full bg-brand-600/50 blur-[90px]" aria-hidden="true" />
         <div className="animate-drift-slow absolute -bottom-24 left-10 h-60 w-60 rounded-full bg-signal/20 blur-[90px]" aria-hidden="true" />
@@ -40,7 +40,7 @@ export default function MemberDashboard() {
             {open && !mark && (
               <Button className="mt-3 w-full" onClick={() => navigate('/member/attendance')}>Mark attendance <ArrowRight className="h-4 w-4" aria-hidden="true" /></Button>
             )}
-            {open && mark && <div className="mt-2 flex items-center gap-2 text-sm text-slate-300"><CircleCheck className="h-4 w-4 text-emerald-400" aria-hidden="true" /> Checked in · <Badge tone={mark.status} /></div>}
+            {open && mark && <div className="mt-2 flex items-center gap-2 text-sm text-slate-700"><CircleCheck className="h-4 w-4 text-emerald-400" aria-hidden="true" /> Checked in · <Badge tone={mark.status} /></div>}
             {!open && <p className="mt-1 text-sm text-slate-400">The admin opens a session at the start of each meeting.</p>}
           </div>
         </div>
@@ -105,10 +105,10 @@ export default function MemberDashboard() {
         <SectionTitle title="Announcements" />
         <ul className="grid gap-3 md:grid-cols-3">
           {state.announcements.slice(0, 3).map((a, i) => (
-            <motion.li key={a.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.25 + i * 0.07 } }} className="rounded-xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-4">
+            <motion.li key={a.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.25 + i * 0.07 } }} className="rounded-xl border border-slate-200 bg-gradient-to-b from-panel to-slate-50 p-4">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-sm font-semibold">{a.title}</p>
-                {Date.now() - new Date(a.postedAt).getTime() < 2 * 864e5 && <span className="rounded-full bg-brand-600 px-2 py-0.5 text-[10px] font-bold text-white">NEW</span>}
+                {Date.now() - new Date(a.postedAt).getTime() < 2 * 864e5 && <span className="rounded-full bg-signal px-2 py-0.5 text-[10px] font-bold text-white shadow-glow-pink">NEW</span>}
               </div>
               <p className="mt-1 text-[13px] text-slate-600">{a.message}</p>
               <p className="mt-2 text-xs text-slate-400">{timeAgo(a.postedAt)}</p>

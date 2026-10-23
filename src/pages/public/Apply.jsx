@@ -23,9 +23,9 @@ function validate(f, same) {
 function SuccessCheck() {
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
-      <motion.circle cx="36" cy="36" r="32" fill="#ECFDF5" stroke="#10B981" strokeWidth="3"
+      <motion.circle cx="36" cy="36" r="32" fill="#05211A" stroke="#39FF9A" strokeWidth="3"
         initial={{ pathLength: 0, scale: 0.6 }} animate={{ pathLength: 1, scale: 1 }} transition={{ duration: 0.6, ease }} />
-      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#059669" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#39FF9A" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.45, duration: 0.45, ease }} />
     </svg>
   );
@@ -78,15 +78,15 @@ export default function Apply() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-50">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-ink-900" aria-hidden="true">
+    <div className="cyber-bg relative min-h-screen overflow-hidden">
+      <div className="scanlines pointer-events-none absolute inset-x-0 top-0 h-80 bg-ink-950 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" aria-hidden="true">
         <div className="tech-grid animate-gridmove absolute inset-0" />
         <div className="animate-drift absolute -top-20 left-1/3 h-72 w-72 rounded-full bg-brand-600/40 blur-[90px]" />
       </div>
       <div className="relative mx-auto flex max-w-[640px] flex-col gap-6 px-4 py-8 sm:py-10">
         <div className="flex items-center justify-between">
           <Logo />
-          <Link to="/login" className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-slate-300 hover:text-white">
+          <Link to="/login" className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-white">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to log in
           </Link>
         </div>
@@ -95,7 +95,7 @@ export default function Apply() {
           {!done ? (
             <motion.form key="form" onSubmit={onSubmit} noValidate
               initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16, scale: 0.98 }} transition={{ duration: 0.5, ease }}
-              className="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-lift sm:p-8">
+              className="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-panel p-6 shadow-lift sm:p-8">
               <div>
                 <h1 className="font-display text-[28px] font-bold tracking-tight">Apply to join OSMIC</h1>
                 <p className="mt-1.5 text-slate-500">The admin reviews every application. Once you are approved, you get an email with a link to set your password.</p>
@@ -153,7 +153,7 @@ export default function Apply() {
           ) : (
             <motion.div key="done" role="status"
               initial={{ opacity: 0, y: 24, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.5, ease }}
-              className="flex flex-col items-center gap-3 rounded-3xl border border-slate-200 bg-white px-6 py-12 text-center shadow-lift">
+              className="flex flex-col items-center gap-3 rounded-3xl border border-slate-200 bg-panel px-6 py-12 text-center shadow-lift">
               <SuccessCheck />
               <h1 className="font-display text-2xl font-bold">Application received</h1>
               <p className="max-w-sm text-slate-500">Thanks, {f.name.split(' ')[0]}! You will get an email once the admin approves you and assigns your club lead.</p>

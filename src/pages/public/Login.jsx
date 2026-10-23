@@ -28,10 +28,10 @@ function Typed({ text }) {
 
 export function AuthBackdrop({ children }) {
   return (
-    <div className="relative flex flex-col justify-between gap-12 overflow-hidden bg-ink-900 p-8 text-slate-300 sm:p-12">
+    <div className="scanlines relative flex flex-col justify-between gap-12 overflow-hidden border-b border-brand-200/50 bg-ink-950 p-8 text-slate-700 sm:p-12 lg:border-b-0 lg:border-r">
       <div className="tech-grid animate-gridmove absolute inset-0" aria-hidden="true" />
-      <div className="animate-drift absolute -left-24 top-10 h-80 w-80 rounded-full bg-brand-600/40 blur-[90px]" aria-hidden="true" />
-      <div className="animate-drift-slow absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-signal/20 blur-[100px]" aria-hidden="true" />
+      <div className="animate-drift absolute -left-24 top-10 h-80 w-80 rounded-full bg-brand-600/25 blur-[90px]" aria-hidden="true" />
+      <div className="animate-drift-slow absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-signal/25 blur-[100px]" aria-hidden="true" />
       <div className="relative">{children}</div>
     </div>
   );
@@ -70,15 +70,15 @@ export default function Login() {
   ];
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-[1.1fr_1fr]">
+    <div className="cyber-bg grid min-h-screen lg:grid-cols-[1.1fr_1fr]">
       <AuthBackdrop>
         <div className="flex min-h-[260px] flex-col justify-between gap-16 lg:min-h-[calc(100vh-96px)]">
           <Logo sub="CLUB PORTAL" />
           <div className="max-w-xl">
             <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5, ease }}
-              className="font-mono text-[13px] font-medium text-signal">{"// welcome to osmic"}</motion.p>
-            <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
-              <Typed text={TAGLINE} />
+              className="neon-pink font-mono text-[13px] font-medium text-signal">{"// welcome to osmic"}</motion.p>
+            <h1 className="mt-4 font-display text-4xl font-bold uppercase leading-[1.05] tracking-wide text-white sm:text-6xl">
+              <span className="glitch"><Typed text={TAGLINE} /></span>
             </h1>
             <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5, ease }}
               className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-400">
@@ -88,7 +88,7 @@ export default function Login() {
           <div className="relative hidden h-20 lg:block" aria-hidden="true">
             {FLOATERS.map((f) => (
               <motion.span key={f.text}
-                className="absolute rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-slate-300 backdrop-blur"
+                className="absolute rounded-md border border-brand-300/60 bg-brand-50/60 px-3 py-1.5 font-mono text-xs text-brand-700 backdrop-blur"
                 style={{ left: f.x, top: 0 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: [0, -10, 0] }}
@@ -102,7 +102,7 @@ export default function Login() {
 
       <div className="flex items-center justify-center px-5 py-12 sm:px-10">
         <motion.div className="w-full max-w-[400px]" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease }}>
-          <h2 className="font-display text-3xl font-bold tracking-tight">Log in</h2>
+          <h2 className="neon-soft font-display text-3xl font-bold uppercase tracking-wide">Log in</h2>
           <p className="mt-1.5 text-slate-500">Use the email you applied with.</p>
 
           <motion.form key={shake} onSubmit={onSubmit} className="mt-8 flex flex-col gap-4"
@@ -143,7 +143,7 @@ export default function Login() {
             <Link to="/apply" className="font-semibold text-brand-600 hover:text-brand-700">Apply to join</Link>
           </p>
 
-          <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white/60 p-4">
+          <div className="mt-8 rounded-2xl border border-dashed border-rose-300 bg-panel/60 p-4">
             <p className="font-mono text-[11px] font-semibold tracking-[0.12em] text-slate-500">DEMO · VIEW THE PORTAL AS</p>
             <div className="mt-3 grid grid-cols-3 gap-2">
               {demo.map((d, i) => (
@@ -151,7 +151,7 @@ export default function Login() {
                   initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.08 }}
                   whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}
                   onClick={() => { const r = actions.loginAs(d.id); go(r.user); }}
-                  className="flex min-h-[56px] flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-2 py-2 shadow-sm transition-shadow hover:shadow-lift">
+                  className="flex min-h-[56px] flex-col items-center justify-center rounded-xl border border-slate-200 bg-panel px-2 py-2 shadow-sm transition-shadow hover:shadow-lift">
                   <span className="text-sm font-semibold text-slate-900">{d.label}</span>
                   <span className="text-[11px] text-slate-500">{d.note}</span>
                 </motion.button>

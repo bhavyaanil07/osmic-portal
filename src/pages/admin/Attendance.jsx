@@ -35,7 +35,7 @@ export default function Attendance() {
     <>
       <PageHeader title="Attendance" sub="Only the admin runs attendance. Step 1: members type the code. Step 2: you verify who is really in the room." />
       <Stagger className="flex flex-col gap-5">
-        <Card className="relative overflow-hidden bg-ink-900 p-6 text-white sm:p-8">
+        <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(34,232,255,0.35)] sm:p-8">
           <div className="tech-grid animate-gridmove absolute inset-0 opacity-70" aria-hidden="true" />
           <div className="animate-drift absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-600/40 blur-[80px]" aria-hidden="true" />
           <AnimatePresence mode="wait">
@@ -62,10 +62,10 @@ export default function Attendance() {
                   <p className="mt-1 text-sm text-slate-400">A new 6-character code is made each time.</p>
                 </div>
                 <div className="flex flex-wrap items-end gap-3">
-                  <Field label={<span className="text-slate-300">Session name</span>} className="min-w-[220px] flex-1">
+                  <Field label={<span className="text-slate-700">Session name</span>} className="min-w-[220px] flex-1">
                     <input className="input" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Weekly meet-up" />
                   </Field>
-                  <Field label={<span className="text-slate-300">Code works for</span>}>
+                  <Field label={<span className="text-slate-700">Code works for</span>}>
                     <select className="input w-40" value={minutes} onChange={(e) => setMinutes(e.target.value)}>
                       {[5, 10, 15, 20, 30].map((m) => <option key={m} value={m}>{m} minutes</option>)}
                     </select>

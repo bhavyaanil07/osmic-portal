@@ -43,7 +43,7 @@ export default function Applications() {
             <motion.li key={a.id} layout
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0, transition: { delay: i * 0.05, duration: 0.4, ease } }}
               exit={{ opacity: 0, x: 60, transition: { duration: 0.3 } }}
-              className="flex flex-wrap items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+              className="flex flex-wrap items-center gap-4 rounded-2xl border border-slate-200 bg-panel p-5 shadow-card">
               <Avatar name={a.name} photo={a.photo} size={56} />
               <div className="flex min-w-[220px] flex-1 flex-col gap-0.5">
                 <div className="flex flex-wrap items-center gap-2">

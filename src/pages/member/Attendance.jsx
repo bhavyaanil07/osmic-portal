@@ -43,7 +43,7 @@ function CodeInput({ value, onChange, error, disabled }) {
           aria-label={`Character ${i + 1}`} inputMode="text" autoCapitalize="characters" autoComplete="one-time-code" disabled={disabled}
           value={ch.trim()} onChange={(e) => onInput(i, e)} onKeyDown={(e) => onKey(i, e)} onFocus={(e) => e.target.select()}
           animate={ch.trim() ? { scale: [1, 1.08, 1] } : {}} transition={{ duration: 0.2 }}
-          className={cx('h-14 w-11 rounded-xl border-2 bg-white text-center font-mono text-2xl font-semibold uppercase text-slate-900 outline-none transition-colors sm:h-16 sm:w-13 sm:w-[52px]',
+          className={cx('h-14 w-11 rounded-xl border-2 bg-panel text-center font-mono text-2xl font-semibold uppercase text-slate-900 outline-none transition-colors sm:h-16 sm:w-13 sm:w-[52px]',
             error ? 'border-red-400' : ch.trim() ? 'border-brand-500' : 'border-slate-300 focus:border-brand-500')} />
       ))}
     </div>

@@ -36,7 +36,7 @@ export function ToastProvider({ children }) {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 40, scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-                className="pointer-events-auto relative overflow-hidden rounded-xl border border-slate-200 bg-white p-3.5 pr-10 shadow-lift"
+                className="pointer-events-auto relative overflow-hidden rounded-xl border border-slate-200 bg-panel p-3.5 pr-10 shadow-lift"
               >
                 <div className="flex items-start gap-3">
                   <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${TONE[t.kind]}`} aria-hidden="true" />
