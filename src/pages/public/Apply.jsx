@@ -23,9 +23,9 @@ function validate(f, same) {
 function SuccessCheck() {
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
-      <motion.circle cx="36" cy="36" r="32" fill="#1C3B33" stroke="#5FC9A0" strokeWidth="3"
+      <motion.circle cx="36" cy="36" r="32" fill="#19361C" stroke="#9BE38A" strokeWidth="3"
         initial={{ pathLength: 0, scale: 0.6 }} animate={{ pathLength: 1, scale: 1 }} transition={{ duration: 0.6, ease }} />
-      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#5FC9A0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#9BE38A" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.45, duration: 0.45, ease }} />
     </svg>
   );
@@ -80,7 +80,7 @@ export default function Apply() {
   return (
     <div className="cyber-bg relative min-h-screen overflow-hidden">
       <div className="scanlines pointer-events-none absolute inset-x-0 top-0 h-80 bg-ink-950 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" aria-hidden="true">
-        <div className="tech-grid animate-gridmove absolute inset-0" />
+        <div className="tech-grid absolute inset-0" />
         <div className="animate-drift absolute -top-20 left-1/3 h-72 w-72 rounded-full bg-brand-600/40 blur-[90px]" />
       </div>
       <div className="relative mx-auto flex max-w-[640px] flex-col gap-6 px-4 py-8 sm:py-10">

@@ -24,8 +24,8 @@ export default function MemberDashboard() {
   return (
     <Stagger className="flex flex-col gap-5">
       <motion.section variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}
-        className="scanlines relative overflow-hidden rounded-3xl border border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(156,195,218,0.35)] sm:p-8">
-        <div className="tech-grid animate-gridmove absolute inset-0 opacity-70" aria-hidden="true" />
+        className="scanlines relative overflow-hidden rounded-3xl border border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(62,230,200,0.35)] sm:p-8">
+        <div className="tech-grid absolute inset-0 opacity-70" aria-hidden="true" />
         <div className="animate-drift absolute -right-16 -top-24 h-72 w-72 rounded-full bg-brand-600/50 blur-[90px]" aria-hidden="true" />
         <div className="animate-drift-slow absolute -bottom-24 left-10 h-60 w-60 rounded-full bg-signal/20 blur-[90px]" aria-hidden="true" />
         <div className="relative flex flex-wrap items-end justify-between gap-6">

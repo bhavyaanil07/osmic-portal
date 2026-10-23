@@ -15,6 +15,10 @@ npm run dev
 Open the link it prints (usually http://localhost:5173).
 
 
+## Put it online (GitHub Pages, free)
+
+1. On GitHub: **Settings > Pages > Source**, choose **GitHub Actions** (one time only).
+2. Every push to `main` then publishes the portal at **https://bhavyaanil07.github.io/osmic-portal/**.
 
 ## Stage 2 plan
 

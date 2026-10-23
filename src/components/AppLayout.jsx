@@ -68,7 +68,7 @@ function Sidebar({ onNavigate }) {
             {({ isActive }) => (
               <>
                 {isActive && (
-                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-brand-50 ring-1 ring-inset ring-brand-300 shadow-[0_0_18px_-4px_rgba(156,195,218,0.5)]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
+                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-brand-50 ring-1 ring-inset ring-brand-300 shadow-[0_0_18px_-4px_rgba(62,230,200,0.5)]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
                 )}
                 {isActive && <motion.span layoutId="nav-bar" className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-signal shadow-glow-pink" />}
                 <item.icon className="relative h-[18px] w-[18px]" aria-hidden="true" />
@@ -232,7 +232,7 @@ export function PageHeader({ title, sub, actions }) {
     <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div>
         <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease }}
-          className="neon-soft font-display text-[30px] font-bold uppercase leading-tight tracking-wide text-slate-900">
+          className="font-display text-[26px] font-semibold leading-tight text-slate-900 sm:text-[30px]">
           {title}
         </motion.h1>
         {sub && (

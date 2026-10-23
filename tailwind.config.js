@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-// Dark theme in a deep teal / steel / ice-blue palette.
+// Dark theme matching the OSMIC website (bhavyaanil07/osmic).
 // The usual Tailwind colour names are re-mapped for a dark background:
 // low numbers (50, 100, 200) are now dark tints and high numbers (700, 800, 900) are bright,
 // so classes like `bg-slate-50`, `text-slate-900` or `bg-emerald-50 text-emerald-700`
@@ -15,33 +15,33 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Chakra Petch"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Instrument Sans"', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        display: ['Unbounded', '"Arial Black"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        // Palette: deep teal #1A3E50, steel blue #345A6D, ice blue #DDEBF5, slate #3D4E56, dark slate #2F434A, charcoal #2B2D33.
-        panel: '#232A30',
-        ink: { 950: '#141A1F', 900: '#1A3E50', 800: '#21495E', 700: '#2F434A', 600: '#345A6D' },
-        // Neutral greys, flipped: 50 = page background, 900 = brightest text (ice blue).
-        slate: tint(['#1B2024', '#2A3237', '#33424A', '#3D4E56', '#7E909A', '#9DB0BB', '#B5C6D0', '#CBDAE3', '#DDEBF5', '#EEF5FA']),
-        // Main accent: ice blue on deep teal.
-        brand: tint(['#18323F', '#1A3E50', '#24506A', '#345A6D', '#9CC3DA', '#BFD9E9', '#DDEBF5', '#EAF3FA', '#F2F8FC', '#F8FBFD']),
-        // Second accent: soft steel blue.
-        signal: '#8DBBD6',
-        emerald: tint(['#17302A', '#1C3B33', '#285548', '#367262', '#6FD1AA', '#7FDAB5', '#5FC9A0', '#9BE3C6', '#BDEDD9', '#DDF6EC']),
-        amber: tint(['#302A18', '#3B331D', '#5A4D2A', '#7A6838', '#E8CB74', '#EED48A', '#E5C468', '#F1DC9D', '#F6E8C1', '#FBF4E0']),
-        red: tint(['#33201F', '#3F2726', '#5E3735', '#804846', '#E89090', '#EC9E9E', '#E07A7A', '#F1B3B3', '#F6CDCD', '#FBE6E6']),
-        violet: tint(['#25223A', '#2D2946', '#433D66', '#5C548A', '#ADA4E0', '#BAB2E8', '#9D93D6', '#CCC6EF', '#DEDAF5', '#EFEDFA']),
-        sky: tint(['#18303D', '#1D3A4A', '#28546B', '#357190', '#8CC5E3', '#A3D2EA', '#74B6DA', '#BEDEF0', '#D6EAF6', '#EBF5FB']),
-        orange: tint(['#33261B', '#3F2E20', '#5E432D', '#80593B', '#EBAE7E', '#EFBB92', '#E59A62', '#F3CBAB', '#F8DDC8', '#FCEFE4']),
-        rose: tint(['#1F3540', '#24404E', '#335B6E', '#40728A', '#A9CBDD', '#BBD6E5', '#8DBBD6', '#CFE2EC', '#E1EDF3', '#F0F6F9']),
+        // Same palette as the OSMIC website: backwater night, bioluminescent cyan, oil-lamp amber.
+        panel: '#0B2530',
+        ink: { 950: '#041015', 900: '#06161D', 800: '#0B2530', 700: '#0D3340', 600: '#134250' },
+        // Neutral greys, flipped: 50 = page background (#06161d), 700 = mist (#c9d6d8), 900 = paper (#eef3f2).
+        slate: tint(['#06161D', '#0E2A35', '#163541', '#1F4552', '#7E9A9F', '#9FB4B7', '#B5C6C8', '#C9D6D8', '#DEE7E6', '#EEF3F2']),
+        // Main accent: glow cyan #3ee6c8.
+        brand: tint(['#08302D', '#0A3F3A', '#0F5C53', '#18806F', '#5FEBD2', '#52E9CE', '#3EE6C8', '#8AF1DF', '#B5F6EA', '#DBFBF5']),
+        // Second accent: lamp amber #f2b544.
+        signal: '#F2B544',
+        emerald: tint(['#142B17', '#19361C', '#255229', '#336F38', '#ADE89F', '#A4E594', '#9BE38A', '#C1EEB6', '#D8F4D1', '#ECFAE8']),
+        amber: tint(['#2E2410', '#3A2D13', '#5C471C', '#806227', '#F5C266', '#F4BC55', '#F2B544', '#F7D08A', '#FAE0B1', '#FCF0D8']),
+        red: tint(['#33191B', '#3F1F21', '#5E2F31', '#804043', '#F29B9B', '#F08C8C', '#EE7B7B', '#F5B5B5', '#F9CFCF', '#FCE7E7']),
+        violet: tint(['#221F38', '#2A2645', '#403A66', '#58508A', '#B7AEEB', '#AFA5E8', '#A398E3', '#CEC8F1', '#E0DCF6', '#F0EEFB']),
+        sky: tint(['#0D2A38', '#103445', '#174E66', '#206A8A', '#8ED6F2', '#7FD0EF', '#6CC8EC', '#B4E4F6', '#D0EEF9', '#E8F7FC']),
+        orange: tint(['#33231A', '#3F2A1E', '#5E3F2C', '#80553A', '#F5B28A', '#F3A67A', '#F09766', '#F8CBB0', '#FBDDCB', '#FDEEE5']),
+        rose: tint(['#2E2410', '#3A2D13', '#5C471C', '#806227', '#F5C266', '#F4BC55', '#F2B544', '#F7D08A', '#FAE0B1', '#FCF0D8']),
       },
       boxShadow: {
-        card: '0 1px 0 rgba(221, 235, 245, 0.03) inset, 0 12px 30px -16px rgba(0, 0, 0, 0.75)',
-        lift: '0 0 0 1px rgba(156, 195, 218, 0.35), 0 0 26px -8px rgba(156, 195, 218, 0.3), 0 18px 40px -18px rgba(0, 0, 0, 0.8)',
-        glow: '0 0 0 1px rgba(221, 235, 245, 0.45), 0 0 22px rgba(156, 195, 218, 0.35)',
-        'glow-pink': '0 0 0 1px rgba(141, 187, 214, 0.45), 0 0 20px rgba(141, 187, 214, 0.35)',
+        card: '0 1px 0 rgba(238, 243, 242, 0.03) inset, 0 14px 34px -18px rgba(0, 0, 0, 0.8)',
+        lift: '0 0 0 1px rgba(62, 230, 200, 0.3), 0 18px 40px -16px rgba(62, 230, 200, 0.28)',
+        glow: '0 10px 30px -10px rgba(62, 230, 200, 0.7)',
+        'glow-pink': '0 10px 30px -10px rgba(242, 181, 68, 0.6)',
       },
       keyframes: {
         drift: {

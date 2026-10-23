@@ -46,10 +46,10 @@ export function useNow(ms = 1000) {
 
 // ---------- buttons ----------
 const BTN = {
-  primary: 'cut bg-brand-600 text-ink-950 font-bold hover:bg-brand-500 hover:shadow-glow',
-  secondary: 'bg-panel text-slate-800 border border-slate-300 hover:border-brand-400 hover:text-brand-700 hover:shadow-glow',
-  ghost: 'bg-transparent text-slate-700 hover:bg-slate-100',
-  success: 'bg-emerald-600 text-ink-950 hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(95,201,160,0.45)]',
+  primary: 'border border-brand-600 bg-brand-600 text-ink-900 hover:shadow-glow',
+  secondary: 'border border-slate-900/45 bg-transparent text-slate-900 hover:bg-slate-900/10',
+  ghost: 'bg-transparent text-slate-700 hover:bg-slate-900/10 hover:translate-y-0',
+  success: 'bg-emerald-600 text-ink-950 hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(155,227,138,0.45)]',
   danger: 'bg-panel text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-400 hover:shadow-[0_0_18px_rgba(224,122,122,0.35)]',
   dark: 'bg-ink-900 text-white hover:bg-ink-800',
 };
@@ -65,7 +65,7 @@ export function Button({ variant = 'primary', size = 'md', icon: Icon, className
       type={type}
       whileTap={{ scale: 0.97 }}
       className={cx(
-        'inline-flex items-center justify-center whitespace-nowrap rounded-lg font-semibold transition-[background-color,border-color,box-shadow,color] duration-200 disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold transition-[background-color,border-color,box-shadow,color,transform] duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50',
         BTN[variant], SIZE[size], className,
       )}
       {...rest}
@@ -95,7 +95,7 @@ export function SectionTitle({ title, sub, action }) {
   return (
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div>
-        <h2 className="font-display text-[17px] font-semibold tracking-wide text-slate-900">{title}</h2>
+        <h2 className="font-display text-[16px] font-semibold text-slate-900">{title}</h2>
         {sub && <p className="mt-0.5 text-[13px] text-slate-500">{sub}</p>}
       </div>
       {action}
@@ -176,7 +176,7 @@ export function AnimatedNumber({ value, suffix = '', className, style }) {
 }
 
 export function ProgressBar({ value, tone = 'brand', className, height = 8 }) {
-  const color = { brand: 'bg-brand-600 shadow-[0_0_10px_rgba(156,195,218,0.7)]', green: 'bg-emerald-500 shadow-[0_0_10px_rgba(95,201,160,0.6)]', amber: 'bg-amber-500 shadow-[0_0_10px_rgba(229,196,104,0.6)]', red: 'bg-red-500 shadow-[0_0_10px_rgba(224,122,122,0.6)]' }[tone];
+  const color = { brand: 'bg-brand-600 shadow-[0_0_10px_rgba(62,230,200,0.7)]', green: 'bg-emerald-500 shadow-[0_0_10px_rgba(155,227,138,0.6)]', amber: 'bg-amber-500 shadow-[0_0_10px_rgba(242,181,68,0.6)]', red: 'bg-red-500 shadow-[0_0_10px_rgba(224,122,122,0.6)]' }[tone];
   return (
     <div className={cx('w-full overflow-hidden rounded-full bg-slate-100', className)} style={{ height }} role="presentation">
       <motion.div
@@ -194,11 +194,11 @@ export function Ring({ value, size = 120, stroke = 10, label }) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const pct = value == null ? 0 : value;
-  const color = pct >= 75 ? '#DDEBF5' : '#E5C468';
+  const color = pct >= 75 ? '#3EE6C8' : '#F2B544';
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#2B3439" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#0E2A35" strokeWidth={stroke} />
         <motion.circle
           cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round"
           strokeDasharray={c} style={{ filter: `drop-shadow(0 0 6px ${color})` }}

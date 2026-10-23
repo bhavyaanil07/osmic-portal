@@ -48,7 +48,7 @@ export function CodeTiles({ code, size = 'lg', dark = true }) {
   return (
     <div className="flex gap-1.5 sm:gap-2" aria-label={`Session code ${code.split('').join(' ')}`}>
       {code.split('').map((ch, i) => (
-        <div key={i} className={cx('cut relative overflow-hidden', big ? 'h-16 w-12 sm:h-[72px] sm:w-14' : 'h-12 w-10', dark ? 'bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-300 neon-text' : 'bg-panel text-slate-900 ring-1 ring-slate-200')}>
+        <div key={i} className={cx('relative overflow-hidden rounded-xl', big ? 'h-16 w-12 sm:h-[72px] sm:w-14' : 'h-12 w-10', dark ? 'bg-ink-950/70 text-slate-900 ring-1 ring-inset ring-brand-300' : 'bg-panel text-slate-900 ring-1 ring-slate-200')}>
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span key={code + i}
               initial={{ rotateX: -90, opacity: 0, y: -10 }} animate={{ rotateX: 0, opacity: 1, y: 0 }} exit={{ rotateX: 90, opacity: 0, y: 10 }}
@@ -77,7 +77,7 @@ export function Countdown({ until, total = 15 * 60000, size = 56 }) {
     <div className="flex items-center gap-3">
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(148,163,184,0.25)" strokeWidth="5" />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#E5C468' : '#DDEBF5'} strokeWidth="5" strokeLinecap="round"
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#F2B544' : '#3EE6C8'} strokeWidth="5" strokeLinecap="round"
           strokeDasharray={c} strokeDashoffset={c * (1 - frac)} style={{ transition: 'stroke-dashoffset 1s linear' }} />
       </svg>
       <div className="flex flex-col">

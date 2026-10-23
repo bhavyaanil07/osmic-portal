@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import App from './App';
 import { StoreProvider } from './lib/store';
@@ -9,7 +9,8 @@ import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* HashRouter (links like /#/admin) works on GitHub Pages without extra server setup */}
+    <HashRouter>
       {/* reducedMotion="user" turns animations down for people who ask their OS for less motion */}
       <MotionConfig reducedMotion="user">
         <StoreProvider>
@@ -18,6 +19,6 @@ createRoot(document.getElementById('root')).render(
           </ToastProvider>
         </StoreProvider>
       </MotionConfig>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );
