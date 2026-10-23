@@ -42,7 +42,7 @@ export default function AdminDashboard() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-          <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(34,232,255,0.35)]">
+          <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(156,195,218,0.35)]">
             <div className="tech-grid absolute inset-0 opacity-60" aria-hidden="true" />
             <div className="relative flex flex-col gap-5">
               <div className="flex flex-wrap items-center justify-between gap-2">

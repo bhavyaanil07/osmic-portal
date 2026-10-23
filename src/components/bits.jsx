@@ -14,7 +14,7 @@ export function StatCard({ label, value, note, icon: Icon, onClick, accent = fal
         <div className="flex items-center justify-between gap-2">
           <span className="text-[13px] font-semibold text-slate-500">{label}</span>
           {Icon && (
-            <span className={cx('flex h-8 w-8 items-center justify-center rounded-lg', accent ? 'bg-signal text-white shadow-glow-pink' : 'bg-slate-100 text-brand-600')}>
+            <span className={cx('flex h-8 w-8 items-center justify-center rounded-lg', accent ? 'bg-signal text-ink-950 shadow-glow-pink' : 'bg-slate-100 text-brand-600')}>
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
           )}
@@ -77,7 +77,7 @@ export function Countdown({ until, total = 15 * 60000, size = 56 }) {
     <div className="flex items-center gap-3">
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(148,163,184,0.25)" strokeWidth="5" />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#FCEE0A' : '#22E8FF'} strokeWidth="5" strokeLinecap="round"
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={left < 120000 ? '#E5C468' : '#DDEBF5'} strokeWidth="5" strokeLinecap="round"
           strokeDasharray={c} strokeDashoffset={c * (1 - frac)} style={{ transition: 'stroke-dashoffset 1s linear' }} />
       </svg>
       <div className="flex flex-col">

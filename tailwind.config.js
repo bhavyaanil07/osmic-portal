@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-// Dark cyberpunk theme.
+// Dark theme in a deep teal / steel / ice-blue palette.
 // The usual Tailwind colour names are re-mapped for a dark background:
 // low numbers (50, 100, 200) are now dark tints and high numbers (700, 800, 900) are bright,
 // so classes like `bg-slate-50`, `text-slate-900` or `bg-emerald-50 text-emerald-700`
@@ -20,27 +20,28 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        panel: '#0E0D1C',
-        ink: { 950: '#05040B', 900: '#09081A', 800: '#100E24', 700: '#1A1736', 600: '#2A2550' },
-        // Neutral greys, flipped: 50 = page background, 900 = brightest text.
-        slate: tint(['#0A0915', '#16152A', '#24233A', '#33324F', '#7C7C9C', '#9C9CB9', '#B6B6CF', '#CFCFE4', '#E5E5F2', '#F6F6FC']),
-        // Main neon: cyan.
-        brand: tint(['#03202A', '#05313D', '#0A5466', '#0E7A92', '#3EF2FF', '#22E8FF', '#00DCF5', '#7DF8FF', '#A8FBFF', '#D2FDFF']),
-        // Second neon: magenta.
-        signal: '#FF2BD6',
-        emerald: tint(['#05211A', '#083023', '#0E5139', '#167A55', '#2EE88A', '#39FF9A', '#1FE184', '#6BFFB4', '#9CFFCC', '#CBFFE4']),
-        amber: tint(['#262106', '#352E08', '#5A4E0C', '#867510', '#F5E50A', '#FCEE0A', '#E6D80A', '#FFF35C', '#FFF78F', '#FFFBC2']),
-        red: tint(['#2A0812', '#3B0B1A', '#66142E', '#981E45', '#FF4D7A', '#FF3B6B', '#E8234F', '#FF7FA0', '#FFA8BE', '#FFD1DC']),
-        violet: tint(['#1A0B2E', '#25103F', '#3E1A66', '#5C27A0', '#A45CFF', '#B26BFF', '#9D4DFF', '#CDA3FF', '#DEC2FF', '#EEE0FF']),
-        sky: tint(['#04192B', '#07263F', '#0C3F66', '#125E96', '#4CC3FF', '#38BDF8', '#0EA5E9', '#8AD8FF', '#B3E6FF', '#DAF3FF']),
-        orange: tint(['#2A1505', '#3B1D07', '#66320C', '#984A12', '#FF9A4D', '#FF8A3D', '#F07020', '#FFB27A', '#FFCBA3', '#FFE4CF']),
-        rose: tint(['#2A0820', '#3B0B2D', '#66144F', '#981E75', '#FF4DCF', '#FF2BD6', '#E61FBF', '#FF85E4', '#FFADEC', '#FFD6F5']),
+        // Palette: deep teal #1A3E50, steel blue #345A6D, ice blue #DDEBF5, slate #3D4E56, dark slate #2F434A, charcoal #2B2D33.
+        panel: '#232A30',
+        ink: { 950: '#141A1F', 900: '#1A3E50', 800: '#21495E', 700: '#2F434A', 600: '#345A6D' },
+        // Neutral greys, flipped: 50 = page background, 900 = brightest text (ice blue).
+        slate: tint(['#1B2024', '#2A3237', '#33424A', '#3D4E56', '#7E909A', '#9DB0BB', '#B5C6D0', '#CBDAE3', '#DDEBF5', '#EEF5FA']),
+        // Main accent: ice blue on deep teal.
+        brand: tint(['#18323F', '#1A3E50', '#24506A', '#345A6D', '#9CC3DA', '#BFD9E9', '#DDEBF5', '#EAF3FA', '#F2F8FC', '#F8FBFD']),
+        // Second accent: soft steel blue.
+        signal: '#8DBBD6',
+        emerald: tint(['#17302A', '#1C3B33', '#285548', '#367262', '#6FD1AA', '#7FDAB5', '#5FC9A0', '#9BE3C6', '#BDEDD9', '#DDF6EC']),
+        amber: tint(['#302A18', '#3B331D', '#5A4D2A', '#7A6838', '#E8CB74', '#EED48A', '#E5C468', '#F1DC9D', '#F6E8C1', '#FBF4E0']),
+        red: tint(['#33201F', '#3F2726', '#5E3735', '#804846', '#E89090', '#EC9E9E', '#E07A7A', '#F1B3B3', '#F6CDCD', '#FBE6E6']),
+        violet: tint(['#25223A', '#2D2946', '#433D66', '#5C548A', '#ADA4E0', '#BAB2E8', '#9D93D6', '#CCC6EF', '#DEDAF5', '#EFEDFA']),
+        sky: tint(['#18303D', '#1D3A4A', '#28546B', '#357190', '#8CC5E3', '#A3D2EA', '#74B6DA', '#BEDEF0', '#D6EAF6', '#EBF5FB']),
+        orange: tint(['#33261B', '#3F2E20', '#5E432D', '#80593B', '#EBAE7E', '#EFBB92', '#E59A62', '#F3CBAB', '#F8DDC8', '#FCEFE4']),
+        rose: tint(['#1F3540', '#24404E', '#335B6E', '#40728A', '#A9CBDD', '#BBD6E5', '#8DBBD6', '#CFE2EC', '#E1EDF3', '#F0F6F9']),
       },
       boxShadow: {
-        card: '0 0 0 1px rgba(34, 232, 255, 0.03), 0 10px 30px -14px rgba(0, 0, 0, 0.9)',
-        lift: '0 0 0 1px rgba(34, 232, 255, 0.35), 0 0 28px -6px rgba(34, 232, 255, 0.35), 0 16px 40px -16px rgba(0, 0, 0, 0.9)',
-        glow: '0 0 0 1px rgba(125, 248, 255, 0.6), 0 0 24px rgba(34, 232, 255, 0.55)',
-        'glow-pink': '0 0 0 1px rgba(255, 43, 214, 0.5), 0 0 24px rgba(255, 43, 214, 0.45)',
+        card: '0 1px 0 rgba(221, 235, 245, 0.03) inset, 0 12px 30px -16px rgba(0, 0, 0, 0.75)',
+        lift: '0 0 0 1px rgba(156, 195, 218, 0.35), 0 0 26px -8px rgba(156, 195, 218, 0.3), 0 18px 40px -18px rgba(0, 0, 0, 0.8)',
+        glow: '0 0 0 1px rgba(221, 235, 245, 0.45), 0 0 22px rgba(156, 195, 218, 0.35)',
+        'glow-pink': '0 0 0 1px rgba(141, 187, 214, 0.45), 0 0 20px rgba(141, 187, 214, 0.35)',
       },
       keyframes: {
         drift: {
@@ -51,6 +52,7 @@ export default {
         gridmove: { from: { backgroundPosition: '0 0' }, to: { backgroundPosition: '48px 48px' } },
         blink: { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } },
         scan: { from: { transform: 'translateY(-100%)' }, to: { transform: 'translateY(100%)' } },
+        flow: { to: { strokeDashoffset: '-400' } },
       },
       animation: {
         drift: 'drift 18s ease-in-out infinite',
@@ -58,6 +60,8 @@ export default {
         gridmove: 'gridmove 6s linear infinite',
         blink: 'blink 1s step-end infinite',
         scan: 'scan 6s linear infinite',
+        flow: 'flow 14s linear infinite',
+        'flow-slow': 'flow 22s linear infinite',
       },
     },
   },

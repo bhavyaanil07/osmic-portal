@@ -68,7 +68,7 @@ function Sidebar({ onNavigate }) {
             {({ isActive }) => (
               <>
                 {isActive && (
-                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-brand-50 ring-1 ring-inset ring-brand-300 shadow-[0_0_18px_-4px_rgba(34,232,255,0.5)]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
+                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-lg bg-brand-50 ring-1 ring-inset ring-brand-300 shadow-[0_0_18px_-4px_rgba(156,195,218,0.5)]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />
                 )}
                 {isActive && <motion.span layoutId="nav-bar" className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-signal shadow-glow-pink" />}
                 <item.icon className="relative h-[18px] w-[18px]" aria-hidden="true" />

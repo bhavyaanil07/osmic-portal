@@ -12,11 +12,11 @@
     @apply bg-slate-50 font-sans text-slate-900;
   }
   ::selection {
-    background: rgba(255, 43, 214, 0.45);
-    color: #fff;
+    background: rgba(156, 195, 218, 0.45);
+    color: #141A1F;
   }
   :focus-visible {
-    outline: 2px solid #22E8FF;
+    outline: 2px solid #DDEBF5;
     outline-offset: 2px;
   }
 }
@@ -38,12 +38,12 @@
 
 /* The app background: near-black with faint neon glows and a grid. */
 .cyber-bg {
-  background-color: #07060F;
+  background-color: #1B2024;
   background-image:
-    radial-gradient(1100px 600px at 0% 0%, rgba(34, 232, 255, 0.07), transparent 60%),
-    radial-gradient(900px 600px at 100% 100%, rgba(255, 43, 214, 0.06), transparent 60%),
-    linear-gradient(rgba(34, 232, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 232, 255, 0.035) 1px, transparent 1px);
+    radial-gradient(1100px 650px at 0% 0%, rgba(52, 90, 109, 0.35), transparent 60%),
+    radial-gradient(900px 650px at 100% 100%, rgba(26, 62, 80, 0.55), transparent 60%),
+    linear-gradient(rgba(221, 235, 245, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 235, 245, 0.025) 1px, transparent 1px);
   background-size: auto, auto, 48px 48px, 48px 48px;
   background-attachment: fixed;
 }
@@ -51,8 +51,8 @@
 /* Moving grid used in hero panels. */
 .tech-grid {
   background-image:
-    linear-gradient(rgba(34, 232, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 232, 255, 0.09) 1px, transparent 1px);
+    linear-gradient(rgba(221, 235, 245, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 235, 245, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -69,14 +69,16 @@
 .cut {
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
-.cut:focus-visible { outline-offset: -4px; outline-color: #05040B; }
+.cut:focus-visible { outline-offset: -4px; outline-color: #1A3E50; }
 
-.neon-text { text-shadow: 0 0 12px rgba(34, 232, 255, 0.55), 0 0 32px rgba(34, 232, 255, 0.25); }
-.neon-soft { text-shadow: 0 0 22px rgba(34, 232, 255, 0.22); }
-.neon-pink { text-shadow: 0 0 12px rgba(255, 43, 214, 0.6); }
+.repeating-scan { background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.02) 0 1px, transparent 1px 3px); }
+
+.neon-text { text-shadow: 0 0 12px rgba(156, 195, 218, 0.55), 0 0 32px rgba(156, 195, 218, 0.25); }
+.neon-soft { text-shadow: 0 0 22px rgba(156, 195, 218, 0.22); }
+.neon-pink { text-shadow: 0 0 12px rgba(141, 187, 214, 0.45); }
 
 .gradient-text {
-  background: linear-gradient(90deg, #7DF8FF, #22E8FF 40%, #FF2BD6);
+  background: linear-gradient(90deg, #F8FBFD, #DDEBF5 45%, #8DBBD6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -84,19 +86,19 @@
 
 /* Brief RGB-split glitch every few seconds. */
 @keyframes glitch {
-  0%, 90%, 100% { text-shadow: 0 0 18px rgba(34, 232, 255, 0.35); transform: none; }
-  91% { text-shadow: -3px 0 #FF2BD6, 3px 0 #22E8FF; transform: translateX(2px) skewX(-6deg); }
-  93% { text-shadow: 3px 0 #FF2BD6, -3px 0 #22E8FF; transform: translateX(-2px); }
-  95% { text-shadow: -1px 0 #FF2BD6, 1px 0 #22E8FF; transform: skewX(3deg); }
-  97% { text-shadow: 0 0 18px rgba(34, 232, 255, 0.35); transform: none; }
+  0%, 90%, 100% { text-shadow: 0 0 18px rgba(156, 195, 218, 0.35); transform: none; }
+  91% { text-shadow: -3px 0 #345A6D, 3px 0 #9CC3DA; transform: translateX(2px) skewX(-6deg); }
+  93% { text-shadow: 3px 0 #345A6D, -3px 0 #9CC3DA; transform: translateX(-2px); }
+  95% { text-shadow: -1px 0 #345A6D, 1px 0 #9CC3DA; transform: skewX(3deg); }
+  97% { text-shadow: 0 0 18px rgba(156, 195, 218, 0.35); transform: none; }
 }
 .glitch { animation: glitch 5s infinite; display: inline-block; }
 
 .scrollbar-thin::-webkit-scrollbar { width: 8px; height: 8px; }
-.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(34, 232, 255, 0.25); border-radius: 999px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(156, 195, 218, 0.25); border-radius: 999px; }
 
 input[type='date']::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(1) hue-rotate(140deg) saturate(4); cursor: pointer; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-drift, .animate-drift-slow, .animate-gridmove, .animate-scan, .glitch { animation: none !important; }
+  .animate-drift, .animate-drift-slow, .animate-gridmove, .animate-scan, .animate-flow, .animate-flow-slow, .glitch { animation: none !important; }
 }

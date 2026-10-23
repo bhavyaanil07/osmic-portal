@@ -9,11 +9,11 @@ export function LogoMark({ size = 36 }) {
       animate={{ rotate: 0, scale: 1, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 200, damping: 18 }}
     >
-      <defs><linearGradient id="osmic-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#22E8FF" /><stop offset="1" stopColor="#FF2BD6" /></linearGradient></defs>
-      <rect width="64" height="64" rx="14" fill="#05040B" stroke="url(#osmic-g)" strokeWidth="3" />
+      <defs><linearGradient id="osmic-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#DDEBF5" /><stop offset="1" stopColor="#345A6D" /></linearGradient></defs>
+      <rect width="64" height="64" rx="14" fill="#1A3E50" stroke="url(#osmic-g)" strokeWidth="3" />
       <circle cx="32" cy="32" r="15" fill="none" stroke="url(#osmic-g)" strokeWidth="6" />
       <motion.circle
-        cx="32" cy="32" r="4" fill="#FF2BD6"
+        cx="32" cy="32" r="4" fill="#9CC3DA"
         animate={{ scale: [1, 1.35, 1], opacity: [1, 0.7, 1] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
       />

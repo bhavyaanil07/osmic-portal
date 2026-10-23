@@ -37,11 +37,30 @@ export function AuthBackdrop({ children }) {
   );
 }
 
-const FLOATERS = [
-  { text: 'attendance.verify()', x: '8%', y: '62%', d: 0 },
-  { text: 'tasks: 12 open', x: '58%', y: '70%', d: 0.6 },
-  { text: 'team.add(member)', x: '40%', y: '82%', d: 1.2 },
+// Slow flowing lines at the bottom of the login panel.
+const WAVES = [
+  { d: 'M0 70 C 120 20, 240 120, 360 70 S 600 20, 720 70', color: '#DDEBF5', width: 1.5, cls: 'animate-flow', dash: '6 10', o: 0.55 },
+  { d: 'M0 95 C 140 50, 260 140, 400 95 S 620 50, 720 95', color: '#9CC3DA', width: 1.25, cls: 'animate-flow-slow', dash: '2 8', o: 0.5 },
+  { d: 'M0 45 C 100 90, 280 0, 420 45 S 640 90, 720 45', color: '#345A6D', width: 2, cls: 'animate-flow-slow', dash: '14 12', o: 0.8 },
 ];
+
+function FlowLines() {
+  return (
+    <svg viewBox="0 0 720 140" preserveAspectRatio="none" className="h-28 w-full" aria-hidden="true">
+      {WAVES.map((w, i) => (
+        <motion.path key={i} d={w.d} fill="none" stroke={w.color} strokeWidth={w.width} strokeDasharray={w.dash} strokeLinecap="round"
+          className={w.cls} initial={{ opacity: 0, y: 12 }} animate={{ opacity: w.o, y: 0 }} transition={{ duration: 1.6, delay: 0.4 + i * 0.25, ease }} />
+      ))}
+      {[0, 1, 2].map((i) => (
+        <motion.circle key={i} r="3.5" fill="#DDEBF5"
+          initial={{ cx: -10, cy: 70, opacity: 0 }}
+          animate={{ cx: [-10, 730], cy: [70, 40, 95, 60, 70], opacity: [0, 1, 1, 1, 0] }}
+          transition={{ duration: 9, repeat: Infinity, delay: 1.5 + i * 3, ease: 'linear' }}
+          style={{ filter: 'drop-shadow(0 0 6px #9CC3DA)' }} />
+      ))}
+    </svg>
+  );
+}
 
 export default function Login() {
   const { actions } = useStore();
@@ -85,18 +104,7 @@ export default function Login() {
               Attendance, tasks, leave and announcements for every OSMIC member, in one place.
             </motion.p>
           </div>
-          <div className="relative hidden h-20 lg:block" aria-hidden="true">
-            {FLOATERS.map((f) => (
-              <motion.span key={f.text}
-                className="absolute rounded-md border border-brand-300/60 bg-brand-50/60 px-3 py-1.5 font-mono text-xs text-brand-700 backdrop-blur"
-                style={{ left: f.x, top: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: [0, -10, 0] }}
-                transition={{ opacity: { delay: 0.8 + f.d }, y: { duration: 5 + f.d, repeat: Infinity, ease: 'easeInOut', delay: f.d } }}>
-                {f.text}
-              </motion.span>
-            ))}
-          </div>
+          <div className="-mx-8 hidden sm:-mx-12 lg:block"><FlowLines /></div>
         </div>
       </AuthBackdrop>
 

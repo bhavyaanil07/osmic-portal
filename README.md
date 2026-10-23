@@ -80,7 +80,7 @@ The pages only talk to `lib/store.jsx`. In stage 2 the inside of each action cha
 ## Built with
 
 React 18 + Vite, Tailwind CSS, Framer Motion (animations), React Router and Lucide icons.
-Dark cyberpunk theme: neon cyan and magenta on near-black, Chakra Petch headings. The colours live in `tailwind.config.js`.
+Dark theme in a deep teal, steel blue and ice blue palette (#1A3E50, #345A6D, #DDEBF5, #3D4E56, #2F434A) with Chakra Petch headings. The colours live in `tailwind.config.js`.
 Animations respect the "reduce motion" setting on the user's device.
 
 ## Deploy

@@ -23,9 +23,9 @@ function validate(f, same) {
 function SuccessCheck() {
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
-      <motion.circle cx="36" cy="36" r="32" fill="#05211A" stroke="#39FF9A" strokeWidth="3"
+      <motion.circle cx="36" cy="36" r="32" fill="#1C3B33" stroke="#5FC9A0" strokeWidth="3"
         initial={{ pathLength: 0, scale: 0.6 }} animate={{ pathLength: 1, scale: 1 }} transition={{ duration: 0.6, ease }} />
-      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#39FF9A" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+      <motion.path d="M22 37l9 9 19-20" fill="none" stroke="#5FC9A0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.45, duration: 0.45, ease }} />
     </svg>
   );

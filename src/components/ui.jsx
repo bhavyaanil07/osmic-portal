@@ -49,8 +49,8 @@ const BTN = {
   primary: 'cut bg-brand-600 text-ink-950 font-bold hover:bg-brand-500 hover:shadow-glow',
   secondary: 'bg-panel text-slate-800 border border-slate-300 hover:border-brand-400 hover:text-brand-700 hover:shadow-glow',
   ghost: 'bg-transparent text-slate-700 hover:bg-slate-100',
-  success: 'bg-emerald-600 text-ink-950 hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(57,255,154,0.45)]',
-  danger: 'bg-panel text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-400 hover:shadow-[0_0_18px_rgba(255,59,107,0.35)]',
+  success: 'bg-emerald-600 text-ink-950 hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(95,201,160,0.45)]',
+  danger: 'bg-panel text-red-700 border border-red-200 hover:bg-red-50 hover:border-red-400 hover:shadow-[0_0_18px_rgba(224,122,122,0.35)]',
   dark: 'bg-ink-900 text-white hover:bg-ink-800',
 };
 const SIZE = {
@@ -176,7 +176,7 @@ export function AnimatedNumber({ value, suffix = '', className, style }) {
 }
 
 export function ProgressBar({ value, tone = 'brand', className, height = 8 }) {
-  const color = { brand: 'bg-brand-600 shadow-[0_0_10px_rgba(34,232,255,0.7)]', green: 'bg-emerald-500 shadow-[0_0_10px_rgba(57,255,154,0.6)]', amber: 'bg-amber-500 shadow-[0_0_10px_rgba(252,238,10,0.6)]', red: 'bg-red-500 shadow-[0_0_10px_rgba(255,59,107,0.6)]' }[tone];
+  const color = { brand: 'bg-brand-600 shadow-[0_0_10px_rgba(156,195,218,0.7)]', green: 'bg-emerald-500 shadow-[0_0_10px_rgba(95,201,160,0.6)]', amber: 'bg-amber-500 shadow-[0_0_10px_rgba(229,196,104,0.6)]', red: 'bg-red-500 shadow-[0_0_10px_rgba(224,122,122,0.6)]' }[tone];
   return (
     <div className={cx('w-full overflow-hidden rounded-full bg-slate-100', className)} style={{ height }} role="presentation">
       <motion.div
@@ -194,11 +194,11 @@ export function Ring({ value, size = 120, stroke = 10, label }) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const pct = value == null ? 0 : value;
-  const color = pct >= 75 ? '#22E8FF' : '#FCEE0A';
+  const color = pct >= 75 ? '#DDEBF5' : '#E5C468';
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" aria-hidden="true">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#1C1B33" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#2B3439" strokeWidth={stroke} />
         <motion.circle
           cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round"
           strokeDasharray={c} style={{ filter: `drop-shadow(0 0 6px ${color})` }}

@@ -35,7 +35,7 @@ export default function Attendance() {
     <>
       <PageHeader title="Attendance" sub="Only the admin runs attendance. Step 1: members type the code. Step 2: you verify who is really in the room." />
       <Stagger className="flex flex-col gap-5">
-        <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(34,232,255,0.35)] sm:p-8">
+        <Card className="scanlines relative overflow-hidden border-brand-300/60 bg-ink-950 p-6 text-white shadow-[0_0_40px_-12px_rgba(156,195,218,0.35)] sm:p-8">
           <div className="tech-grid animate-gridmove absolute inset-0 opacity-70" aria-hidden="true" />
           <div className="animate-drift absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-600/40 blur-[80px]" aria-hidden="true" />
           <AnimatePresence mode="wait">
